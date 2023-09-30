@@ -1,0 +1,9 @@
+.inlineSettingContainer {
+    align-self: stretch;
+    flex-grow: 0;
+    height: 50px;
+    background-color: rgba(116, 83, 83, 0.96);
+    padding-top: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

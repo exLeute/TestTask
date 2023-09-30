@@ -1,0 +1,198 @@
+.primaryButton:hover {
+    padding-left: 10px;
+    transition-timing-function: ease-in-out-sine;
+    transition-duration: 50ms;
+    padding-right: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(163, 182, 191);
+    border-color: rgb(163, 182, 191);
+}
+
+.primaryButton:active {
+    transition-duration: 50ms;
+    transition-timing-function: ease-in-out-sine;
+    scale: 1.1 1.1;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.primaryButton {
+    -unity-text-outline-color: rgba(0, 0, 0, 0.75);
+    -unity-text-outline-width: 2px;
+    -unity-text-align: middle-left;
+    -unity-font-style: normal;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    text-overflow: ellipsis;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 2px;
+    border-left-width: 0;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    margin: 20px;
+    -unity-font-definition: url('project://database/Assets/VFX/Fonts/NAMU-1400.ttf?fileID=12800000&guid=32b30a043935413cf9b69054b7e11b8d&type=3#NAMU-1400');
+    transition-timing-function: ease-in-out-sine;
+    transition-duration: 50ms;
+    padding: 0 10px 5px 0;
+    letter-spacing: 0;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    -unity-background-scale-mode: stretch-to-fill;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    -unity-paragraph-spacing: 0;
+    position: relative;
+    flex-shrink: 1;
+    flex-grow: 0;
+    width: auto;
+}
+
+.uiButton {
+    -unity-text-outline-color: rgba(0, 0, 0, 0.75);
+    -unity-text-outline-width: 2px;
+    -unity-text-align: middle-left;
+    -unity-font-style: normal;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    text-overflow: ellipsis;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 2px;
+    border-left-width: 0;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    margin: 20px;
+    -unity-font-definition: url('project://database/Assets/VFX/Fonts/NAMU-1400.ttf?fileID=12800000&guid=32b30a043935413cf9b69054b7e11b8d&type=3#NAMU-1400');
+    transition-timing-function: ease-in-out-sine;
+    transition-duration: 50ms;
+    padding: 0 10px 5px 0;
+    letter-spacing: 0;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    -unity-background-scale-mode: stretch-to-fill;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    -unity-paragraph-spacing: 0;
+    position: relative;
+    flex-shrink: 1;
+    flex-grow: 0;
+    width: auto;
+}
+
+.uiButton-right {
+    -unity-text-outline-color: rgba(0, 0, 0, 0.5);
+    -unity-text-outline-width: 2px;
+    -unity-text-align: middle-right;
+    -unity-font-style: bold;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    text-overflow: ellipsis;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 2px;
+    border-left-width: 0;
+    border-color: rgb(255, 255, 255);
+    margin: 20px;
+    -unity-font-definition: url('project://database/Assets/VFX/Fonts/NAMU-1400.ttf?fileID=12800000&guid=32b30a043935413cf9b69054b7e11b8d&type=3#NAMU-1400');
+    transition-timing-function: ease-in-out-sine;
+    transition-duration: 50ms;
+    padding: 0 0 5px 10px;
+    letter-spacing: 0;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    -unity-background-scale-mode: stretch-to-fill;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    -unity-paragraph-spacing: 0;
+    position: relative;
+    flex-shrink: 1;
+    flex-grow: 0;
+    width: auto;
+}
+
+.uiButton-right:hover {
+    padding-left: 0;
+    padding-right: 10px;
+    transition-timing-function: ease-in-out-sine;
+    transition-duration: 50ms;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(163, 182, 191);
+    border-color: rgb(163, 182, 191);
+}
+
+.uiButton-right:active {
+    transition-duration: 50ms;
+    transition-timing-function: ease-in-out-sine;
+    scale: 1.1 1.1;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.uiButton-left:hover {
+    padding-right: 0;
+    padding-left: 10px;
+    transition-timing-function: ease-in-out-sine;
+    transition-duration: 50ms;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(163, 182, 191);
+    border-color: rgb(163, 182, 191);
+}
+
+.uiButton-left:active {
+    transition-duration: 50ms;
+    transition-timing-function: ease-in-out-sine;
+    scale: 1.1 1.1;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.uiButton-left {
+    -unity-text-outline-color: rgba(0, 0, 0, 0.5);
+    -unity-text-outline-width: 2px;
+    -unity-text-align: middle-left;
+    -unity-font-style: bold;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    text-overflow: ellipsis;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 2px;
+    border-left-width: 0;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    margin: 20px;
+    -unity-font-definition: url('project://database/Assets/VFX/Fonts/NAMU-1400.ttf?fileID=12800000&guid=32b30a043935413cf9b69054b7e11b8d&type=3#NAMU-1400');
+    transition-timing-function: ease-in-out-sine;
+    transition-duration: 50ms;
+    padding: 0 10px 5px 0;
+    letter-spacing: 0;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    -unity-background-scale-mode: stretch-to-fill;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    -unity-paragraph-spacing: 0;
+    position: relative;
+    flex-shrink: 1;
+    flex-grow: 0;
+    width: auto;
+}

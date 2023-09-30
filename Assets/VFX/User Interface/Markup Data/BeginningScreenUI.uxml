@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="MainMenuUI" src="project://database/Assets/VFX/User%20Interface/Markup%20Data/MainMenuUI.uxml?fileID=9197481963319205126&amp;guid=f8fcff14e0955af11bfeca662c0822c9&amp;type=3#MainMenuUI" />
+    <ui:Template name="SettingsMenuUI" src="project://database/Assets/VFX/User%20Interface/Markup%20Data/SettingsMenuUI.uxml?fileID=9197481963319205126&amp;guid=cfa991ee7dd55e486b5226d86795f443&amp;type=3#SettingsMenuUI" />
+    <ui:Instance template="MainMenuUI" name="MainMenuUI" style="flex-grow: 1;" />
+    <ui:Instance template="SettingsMenuUI" name="SettingsMenuUI" style="flex-grow: 1; display: none;" />
+</ui:UXML>

@@ -1,0 +1,27 @@
+.unity-scroller--vertical {
+    margin-left: 15px;
+    width: 10px;
+}
+
+.unity-scroller--vertical > .unity-scroller__high-button {
+    display: none;
+}
+
+.unity-scroller--vertical > .unity-scroller__low-button {
+    display: none;
+}
+
+.unity-scroller--vertical .unity-base-slider__tracker {
+    width: 14px;
+    border-color: rgba(0, 0, 0, 0);
+    border-width: 2px;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.unity-scroller--vertical .unity-base-slider__dragger {
+    transform-origin: center;
+    background-color: white;
+    width: 8px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}

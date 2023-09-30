@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/MainMenuStylesheet.uss?fileID=7433441132597879392&amp;guid=7453e63da1559589d8c6529183565408&amp;type=3#MainMenuStylesheet" />
+    <ui:VisualElement name="MasterContainer" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/VFX/Images/malevich_serp_i_molot.jpg?fileID=2800000&amp;guid=356c759688761b44b82422e8e9892a3e&amp;type=3#malevich_serp_i_molot&apos;); -unity-background-image-tint-color: rgb(229, 229, 229); -unity-background-scale-mode: scale-and-crop;">
+        <ui:VisualElement name="ButtonsContainer" style="flex-grow: 0; align-self: flex-start; align-items: flex-start; flex-basis: auto; justify-content: center; flex-shrink: 0; width: 500px; max-width: none; min-width: auto; max-height: none; min-height: auto; background-color: rgba(0, 0, 0, 0); -unity-background-image-tint-color: rgb(255, 255, 255); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-image: url(&apos;project://database/Assets/VFX/Images/test-task-button-bg.png?fileID=2800000&amp;guid=8d66d000da3248467bd1e8187da7e58a&amp;type=3#test-task-button-bg&apos;); -unity-background-scale-mode: scale-and-crop; height: 100%;">
+            <ui:Button text="Грати" display-tooltip-when-elided="true" name="PlayButton" class="primaryButton" style="font-size: 64px;" />
+            <ui:Button text="Налаштування" display-tooltip-when-elided="true" name="SettingsButton" tabindex="1" class="primaryButton" style="font-size: 32px; -unity-text-outline-width: 1px;" />
+            <ui:Button text="Вихід" display-tooltip-when-elided="true" name="QuitButton" tabindex="2" class="primaryButton" style="font-size: 32px; -unity-text-outline-width: 1px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
