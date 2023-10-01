@@ -5,7 +5,7 @@ namespace UserInterface
 {
     public class UiManager : MonoBehaviour
     {
-        [SerializeField] private SoundOrganizer soundOrganizer;
+        public SoundOrganizer soundOrganizer;
 
         private VisualElement _root;
 

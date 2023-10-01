@@ -28,7 +28,7 @@ namespace UserInterface
                 OpenSettingsActionSubscribe = () => SwapScreenWith(_mainMenuScreen, _settingsScreen)
             };
 
-            _settingsMenuBroadcaster = new SettingsMenuBroadcaster(_root)
+            _settingsMenuBroadcaster = new SettingsMenuBroadcaster(_root, uiManager)
             {
                 MainMenuReturnActionSubscribe = () => SwapScreenWith(_settingsScreen, _mainMenuScreen)
             };

@@ -44,7 +44,7 @@
                                     <ui:Label text="Яскравість" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="BrightnessControlSliderContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: stretch; justify-content: center; align-self: flex-end;">
-                                    <ui:Slider name="BrightnessControlSlider" value="50" high-value="100" style="flex-shrink: 1; flex-grow: 1;" />
+                                    <ui:Slider name="BrightnessControlSlider" value="0.5" high-value="1" style="flex-shrink: 1; flex-grow: 1;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                         </ui:VisualElement>
@@ -59,7 +59,7 @@
                                     <ui:Label text="Музика" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="VolumeControlSliderContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: stretch; justify-content: center; align-self: flex-end;">
-                                    <ui:Slider value="42" high-value="100" name="MusicVolumeSlider" style="flex-shrink: 1; flex-grow: 1;" />
+                                    <ui:Slider value="0.5" high-value="1" name="MusicVolumeSlider" style="flex-shrink: 1; flex-grow: 1;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                         </ui:VisualElement>
@@ -69,7 +69,7 @@
                                     <ui:Label text="Інтерфейс" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="VolumeControlSliderContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: stretch; justify-content: center; align-self: flex-end;">
-                                    <ui:Slider value="42" high-value="100" name="UiVolumeSlider" style="flex-shrink: 1; flex-grow: 1;" />
+                                    <ui:Slider value="0.5" high-value="1" name="UiVolumeSlider" style="flex-shrink: 1; flex-grow: 1;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                         </ui:VisualElement>
