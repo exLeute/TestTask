@@ -15,10 +15,10 @@ namespace UserInterface
         
         public MainMenuBroadcaster(VisualElement root)
         {
-            QueryUiElements(root);
+            QueryForMainMenuControls(root);
         }
 
-        private void QueryUiElements(VisualElement root)
+        private void QueryForMainMenuControls(VisualElement root)
         {
             _playButton = root.Q<Button>(AccessibleUIElements.MainMenu.Buttons.Play);
             _settingsButton = root.Q<Button>(AccessibleUIElements.MainMenu.Buttons.Settings);

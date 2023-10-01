@@ -24,8 +24,25 @@ namespace UserInterface
         {
             public struct Buttons
             {
-                public const string SaveSettings = "";
+                public const string SaveSettings = "SaveSettingsButton";
                 public const string ReturnMainMenu = "ReturnMainMenuButton";
+            }                 
+            
+            public struct DropDownFields
+            {
+                public const string Resolution = "ResolutionDropdownField";
+            }         
+            
+            public struct Toggles
+            {
+                public const string Fullscreen = "FullscreenToggle";
+            }            
+            
+            public struct Sliders
+            {
+                public const string Brightness = "BrightnessControlSlider";
+                public const string Music = "MusicVolumeSlider";
+                public const string UserInterface = "UiVolumeSlider";
             }
         }
     }

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,9 +5,7 @@ namespace UserInterface
 {
     public class UiManager : MonoBehaviour
     {
-        [SerializeField] private UiSoundOrganizer uiSoundOrganizer;
-        [SerializeField] private AudioClip audioClip;
-        private static AudioSource _audioSource;
+        [SerializeField] private SoundOrganizer soundOrganizer;
 
         private VisualElement _root;
 
@@ -21,7 +17,6 @@ namespace UserInterface
 
         private void ConfigureSounds()
         {
-            uiSoundOrganizer.Init();
             BindSoundsToUi();
         }
 
@@ -34,18 +29,18 @@ namespace UserInterface
                 _root.parent.Query(className: AccessibleUIElements.BuiltIn.DropDownField.DropdownItem);
             
             toggleElements.ForEach(toggle =>
-                uiSoundOrganizer.AssignSoundTo<MouseEnterEvent>(toggle));
+                soundOrganizer.AssignSoundToUI<MouseEnterEvent>(soundOrganizer.controls.hoverClick, toggle));
             
             buttonElements.ForEach(button =>
-                uiSoundOrganizer.AssignSoundTo<MouseEnterEvent>(button));
+                soundOrganizer.AssignSoundToUI<MouseEnterEvent>(soundOrganizer.controls.hoverClick, button));
 
             dropDownElements.ForEach(dropdown =>
             {
-                uiSoundOrganizer.AssignSoundTo<MouseEnterEvent>(dropdown);
+                soundOrganizer.AssignSoundToUI<MouseEnterEvent>(soundOrganizer.controls.hoverClick, dropdown);
                 dropdown.RegisterCallback<MouseDownEvent>(_ =>
                 {
                     dropDownItemElements.ForEach(dropdownItem =>
-                        uiSoundOrganizer.AssignSoundTo<MouseEnterEvent>(dropdownItem));
+                        soundOrganizer.AssignSoundToUI<MouseEnterEvent>(soundOrganizer.controls.hoverClick, dropdownItem));
                 });
             });
         }
