@@ -1,29 +1,28 @@
 using System;
-using UnityEngine;
 using UnityEngine.UIElements;
-
 namespace UserInterface
 {
     public class MainMenuBroadcaster
     {
-        private readonly Button _startButton;
-        private readonly Button _settingsButton;
-        private readonly Button _quitButton;
+        private Button _playButton;
+        private Button _settingsButton;
+        private Button _quitButton;
         
-        public Action OpenSettings
-        {
-            set => _settingsButton.clicked += value;
-        }
+        public Action PlayActionSubscribe { set => _playButton.clicked += value; }              
+        public Action OpenSettingsActionSubscribe { set => _settingsButton.clicked += value; }        
+        public Action QuitGameActionSubscribe { set => _quitButton.clicked += value; }
+        
         
         public MainMenuBroadcaster(VisualElement root)
         {
-            _startButton = root.Q<Button>("PlayButton");
-            _settingsButton = root.Q<Button>("SettingsButton");
-            _quitButton = root.Q<Button>("QuitButton");
-            
-            _startButton.clicked += () => Debug.Log("start clicked");
-            _settingsButton.clicked += () => Debug.Log("settings clicked");
-            _quitButton.clicked += () => Debug.Log("quit clicked");
+            QueryUiElements(root);
+        }
+
+        private void QueryUiElements(VisualElement root)
+        {
+            _playButton = root.Q<Button>(AccessibleUIElements.MainMenu.Buttons.Play);
+            _settingsButton = root.Q<Button>(AccessibleUIElements.MainMenu.Buttons.Settings);
+            _quitButton = root.Q<Button>(AccessibleUIElements.MainMenu.Buttons.Quit);
         }
     }
 }

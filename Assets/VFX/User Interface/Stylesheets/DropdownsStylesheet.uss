@@ -28,6 +28,10 @@
     color: #000000 !important;
 }
 
+.unity-base-dropdown__item:checked > {
+    display: none;
+}
+
 .unity-base-dropdown #unity-content-container {
     flex-direction: column;
 }

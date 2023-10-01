@@ -5,30 +5,41 @@ using UnityEngine.UIElements;
 namespace UserInterface
 {
     [RequireComponent(typeof(UIDocument))]
+
     public class BeginningScreenBroadcaster : MonoBehaviour
     {
-        private VisualElement _mainMenuScreen;
-        private VisualElement _settingsScreen;
+        [SerializeField] private UiManager uiManager;
+        private VisualElement _root;
         
-        private void Start()
-        {
-            VisualElement root = GetComponent<UIDocument>().rootVisualElement;
-            _mainMenuScreen = root.Q("MainMenuUI");
-            _settingsScreen = root.Q("SettingsMenuUI");
+        private VisualElement _mainMenuScreen;
+        private MainMenuBroadcaster _mainMenuBroadcaster;
+        
+        private VisualElement _settingsScreen;
+        private SettingsMenuBroadcaster _settingsMenuBroadcaster;
 
-            MainMenuBroadcaster mainMenuBroadcaster = new (root);
-            mainMenuBroadcaster.OpenSettings = () =>
+        public void Start()
+        {
+            _root = GetComponent<UIDocument>().rootVisualElement;
+            _mainMenuScreen = _root.Q("MainMenuUI");
+            _settingsScreen = _root.Q("SettingsMenuUI");
+            
+            _mainMenuBroadcaster = new MainMenuBroadcaster(_root)
             {
-                _mainMenuScreen.Display(false);
-                _settingsScreen.Display(true);
+                OpenSettingsActionSubscribe = () => SwapScreenWith(_mainMenuScreen, _settingsScreen)
+            };
+
+            _settingsMenuBroadcaster = new SettingsMenuBroadcaster(_root)
+            {
+                MainMenuReturnActionSubscribe = () => SwapScreenWith(_settingsScreen, _mainMenuScreen)
             };
             
-            SettingsMenuBroadcaster settingsMenuBroadcaster = new (root);
-            settingsMenuBroadcaster.MainMenuReturn = () =>
-            {
-                _mainMenuScreen.Display(true);
-                _settingsScreen.Display(false);
-            };
+            uiManager.Init(_root);
+        }
+
+        private static void SwapScreenWith(VisualElement swapFrom, VisualElement swapTo)
+        {
+            swapFrom.Display(false);
+            swapTo.Display(true);
         }
     }
 }
