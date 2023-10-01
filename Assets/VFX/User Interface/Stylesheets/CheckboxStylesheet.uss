@@ -1,0 +1,24 @@
+.unity-toggle__checkmark {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0 0 2px 0;
+    border-color: #4b4b4b;
+    padding: 5px;
+}
+
+.unity-toggle > .unity-toggle__input .unity-toggle__checkmark {
+    background-image: url('project://database/Assets/VFX/Images/cross.png?fileID=2800000&guid=b6eb97de3873a4f62be4264a6b13f708&type=3#cross');
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-background-image-tint-color: white;
+}
+
+.unity-toggle > .unity-toggle__input:hover .unity-toggle__checkmark {
+    border-color: rgb(155, 155, 155);
+}
+
+.unity-toggle > .unity-toggle__input:checked .unity-toggle__checkmark {
+    background-image: url('project://database/Assets/VFX/Images/check.png?fileID=2800000&guid=7ada815f83875dcfeaf8343417df4420&type=3#check');
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-background-image-tint-color: white;
+}

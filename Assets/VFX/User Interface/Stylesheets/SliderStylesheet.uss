@@ -1,0 +1,31 @@
+.unity-base-slider__input {
+}
+
+.unity-slider__input {
+}
+
+#unity-drag-container{
+}
+
+.unity-base-slider__drag-container {
+}
+
+.unity-base-slider--horizontal .unity-base-slider__tracker {
+    background-color: rgb(75, 75, 75);
+    border-width: 0;
+    height: 8px;
+}
+
+.unity-base-slider__dragger-border {
+}
+
+.unity-base-slider--horizontal .unity-base-slider__dragger {
+    background-color: white;
+    border-width: 0;
+    width: 25px;
+    height: 25px;
+}
+
+.unity-scroller--vertical > .unity-scroller__slider {
+    margin: 0;
+}

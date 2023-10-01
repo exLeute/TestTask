@@ -3,14 +3,16 @@
     <Style src="project://database/Assets/VFX/User%20Interface/Stylesheets/BasicScrollStylesheet.uss?fileID=7433441132597879392&amp;guid=e2a26565e34d3743d843c6e28558de7c&amp;type=3#BasicScrollStylesheet" />
     <Style src="project://database/Assets/VFX/User%20Interface/Stylesheets/PredefinedContainers.uss?fileID=7433441132597879392&amp;guid=c90bd23115e6ffaeaaa531fa52ec9016&amp;type=3#PredefinedContainers" />
     <Style src="project://database/Assets/VFX/User%20Interface/Stylesheets/ButtonsStylesheet.uss?fileID=7433441132597879392&amp;guid=7453e63da1559589d8c6529183565408&amp;type=3#ButtonsStylesheet" />
+    <Style src="project://database/Assets/VFX/User%20Interface/Stylesheets/SliderStylesheet.uss?fileID=7433441132597879392&amp;guid=f9d05a347bca437428cd9864ad640cc7&amp;type=3#SliderStylesheet" />
     <Style src="project://database/Assets/VFX/User%20Interface/Stylesheets/DropdownsStylesheet.uss?fileID=7433441132597879392&amp;guid=263bddd8af9bbff9589f52be297969a7&amp;type=3#DropdownsStylesheet" />
+    <Style src="project://database/Assets/VFX/User%20Interface/Stylesheets/CheckboxStylesheet.uss?fileID=7433441132597879392&amp;guid=2814b06495f8960549567bb3cebc6ab2&amp;type=3#CheckboxStylesheet" />
     <ui:VisualElement name="Essentials" style="flex-grow: 1; background-color: rgb(41, 44, 46); -unity-text-align: upper-center; align-items: center; justify-content: center; min-width: auto; min-height: auto; align-self: stretch; background-image: url(&apos;project://database/Assets/VFX/Images/malevich_serp_i_molot_inverted.jpg?fileID=2800000&amp;guid=c3ad7628bb6b9e172b10f5bea0091129&amp;type=3#malevich_serp_i_molot_inverted&apos;); -unity-background-scale-mode: scale-and-crop; flex-direction: row;">
         <ui:VisualElement name="ClampBorderLeft" style="flex-grow: 1; align-self: stretch; background-image: url(&apos;project://database/Assets/VFX/Images/test-task-button-bg.png?fileID=2800000&amp;guid=8d66d000da3248467bd1e8187da7e58a&amp;type=3#test-task-button-bg&apos;); -unity-background-scale-mode: scale-and-crop; width: 15%; -unity-background-image-tint-color: rgb(255, 255, 255); rotate: 180deg; flex-shrink: 1;" />
         <ui:VisualElement name="CenterClampContainer" style="flex-grow: 1; align-self: center; align-items: center; justify-content: center; width: 100%; flex-wrap: nowrap; flex-direction: column; background-color: rgb(0, 0, 0); background-image: none; -unity-background-scale-mode: scale-and-crop; padding-right: 2.5%; padding-left: 2.5%; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">
-            <ui:VisualElement name="SettingsHeaderContainer" style="flex-grow: 1; align-self: stretch; flex-basis: auto; flex-shrink: 1; justify-content: center; align-items: center; border-left-color: rgb(63, 65, 67); border-right-color: rgb(63, 65, 67); border-top-color: rgb(63, 65, 67); border-bottom-color: rgb(63, 65, 67); border-top-width: 0; border-right-width: 0; border-bottom-width: 2px; border-left-width: 0; flex-wrap: nowrap; white-space: normal; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="SettingsHeaderContainer" style="flex-grow: 0; align-self: stretch; flex-basis: auto; flex-shrink: 0; justify-content: center; align-items: center; border-left-color: rgb(63, 65, 67); border-right-color: rgb(63, 65, 67); border-top-color: rgb(63, 65, 67); border-bottom-color: rgb(63, 65, 67); border-top-width: 0; border-right-width: 0; border-bottom-width: 2px; border-left-width: 0; flex-wrap: nowrap; white-space: normal; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; background-color: rgba(0, 0, 0, 0);">
                 <ui:Label tabindex="-1" text="Налаштування" display-tooltip-when-elided="true" name="SettingsLabel" class="headerLabel" style="white-space: nowrap; align-self: center; flex-wrap: nowrap; justify-content: center; -unity-text-align: middle-center; text-overflow: ellipsis;" />
             </ui:VisualElement>
-            <ui:VisualElement name="SettingsContainer" style="flex-grow: 1; align-self: stretch; min-height: 65%; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px;">
+            <ui:VisualElement name="SettingsContainer" style="flex-grow: 1; align-self: stretch; min-height: auto; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px;">
                 <ui:ScrollView touch-scroll-type="Clamped" mode="Vertical" horizontal-scroller-visibility="Hidden" name="SettingsScrollView" style="background-color: rgba(0, 0, 0, 0); align-self: stretch; justify-content: center; align-items: stretch; color: rgb(0, 0, 0); font-size: 64px; transition-duration: 100ms; transition-timing-function: ease-in-out; flex-grow: 1;">
                     <ui:VisualElement name="VideoSettingsLabelContainer" style="flex-grow: 1; align-items: flex-start; justify-content: center; align-self: stretch; width: auto;">
                         <ui:Label tabindex="-1" text="Графіка" display-tooltip-when-elided="true" name="VideoSettingsGroupLabel" class="settingGroupLabel" style="white-space: nowrap; align-self: flex-start; flex-wrap: nowrap; justify-content: center; -unity-text-align: middle-center; text-overflow: ellipsis; align-items: stretch;" />
@@ -18,31 +20,31 @@
                     <ui:VisualElement name="VideoSettingsGroup" style="flex-grow: 1; margin-left: 32px;">
                         <ui:VisualElement name="inlineSettingContainer" class="inlineSettingContainer" style="flex-grow: 1;">
                             <ui:VisualElement name="inlineDropDownSettingTemplate" style="flex-grow: 1; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; display: flex;">
-                                <ui:VisualElement name="SettingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; justify-content: center; align-items: flex-start;">
+                                <ui:VisualElement name="SettingLabelContainer" class="settingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; display: flex; justify-content: center; align-items: flex-start;">
                                     <ui:Label text="Повноекранний режим" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="ToggleContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: flex-end; justify-content: center; align-self: flex-end;">
-                                    <ui:Toggle style="display: flex; justify-content: space-evenly; align-self: flex-end; flex-shrink: 0; flex-grow: 0; width: 25px; height: auto; align-items: stretch; margin-top: 0; margin-right: 5px; margin-bottom: 0; margin-left: 0;" />
+                                    <ui:Toggle style="display: flex; justify-content: space-evenly; align-self: center; flex-shrink: 0; flex-grow: 0; align-items: stretch; margin-top: 0; margin-right: 5px; margin-bottom: 0; margin-left: 0; background-image: none;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                         </ui:VisualElement>
                         <ui:VisualElement name="inlineSettingContainer" class="inlineSettingContainer" style="flex-grow: 1;">
                             <ui:VisualElement name="inlineDropDownSettingTemplate" style="flex-grow: 1; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; display: flex;">
-                                <ui:VisualElement name="SettingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; justify-content: center; align-items: flex-start;">
+                                <ui:VisualElement name="SettingLabelContainer" class="settingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; display: flex; justify-content: center; align-items: flex-start;">
                                     <ui:Label text="Розширення екрану" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="DropdownContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: stretch; justify-content: center; align-self: flex-end;">
-                                    <ui:DropdownField index="-1" choices="System.Collections.Generic.List`1[System.String]" name="DropdownField" style="-unity-font-definition: url(&apos;project://database/Assets/VFX/Fonts/NAMU-1400.ttf?fileID=12800000&amp;guid=32b30a043935413cf9b69054b7e11b8d&amp;type=3#NAMU-1400&apos;); font-size: 24px; height: auto;" />
+                                    <ui:DropdownField index="-1" choices="1920x1080, 1024x720, 1280x600, 900x600" name="DropdownField" focusable="false" style="-unity-font-definition: url(&apos;project://database/Assets/VFX/Fonts/NAMU-1400.ttf?fileID=12800000&amp;guid=32b30a043935413cf9b69054b7e11b8d&amp;type=3#NAMU-1400&apos;); font-size: 24px; flex-shrink: 1; flex-grow: 1; margin-top: 0; margin-bottom: 0; margin-left: 0; -unity-text-align: upper-right; justify-content: flex-end;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                         </ui:VisualElement>
                         <ui:VisualElement name="inlineSettingContainer" class="inlineSettingContainer" style="flex-grow: 1;">
                             <ui:VisualElement name="inlineDropDownSettingTemplate" style="flex-grow: 1; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; display: flex;">
-                                <ui:VisualElement name="SettingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; justify-content: center; align-items: flex-start;">
+                                <ui:VisualElement name="SettingLabelContainer" class="settingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; display: flex; justify-content: center; align-items: flex-start;">
                                     <ui:Label text="Яскравість" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
                                 </ui:VisualElement>
-                                <ui:VisualElement name="DropdownContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: stretch; justify-content: center; align-self: flex-end;">
-                                    <ui:DropdownField index="-1" choices="System.Collections.Generic.List`1[System.String]" name="DropdownField" style="-unity-font-definition: url(&apos;project://database/Assets/VFX/Fonts/NAMU-1400.ttf?fileID=12800000&amp;guid=32b30a043935413cf9b69054b7e11b8d&amp;type=3#NAMU-1400&apos;); font-size: 24px; height: auto;" />
+                                <ui:VisualElement name="BrightnessControlSliderContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: stretch; justify-content: center; align-self: flex-end;">
+                                    <ui:Slider name="BrightnessControlSlider" value="50" high-value="100" style="flex-shrink: 1; flex-grow: 1;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                         </ui:VisualElement>
@@ -53,11 +55,11 @@
                     <ui:VisualElement name="AudioSettingsGroup" style="flex-grow: 1; margin-left: 32px;">
                         <ui:VisualElement name="inlineSettingContainer" class="inlineSettingContainer" style="flex-grow: 1;">
                             <ui:VisualElement name="inlineDropDownSettingTemplate" style="flex-grow: 1; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; display: flex;">
-                                <ui:VisualElement name="SettingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; justify-content: center; align-items: flex-start;">
+                                <ui:VisualElement name="SettingLabelContainer" class="settingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; display: flex; justify-content: center; align-items: flex-start;">
                                     <ui:Label text="Гучність" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
                                 </ui:VisualElement>
-                                <ui:VisualElement name="DropdownContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: stretch; justify-content: center; align-self: flex-end;">
-                                    <ui:DropdownField index="-1" choices="1920x1080" name="DropdownField" style="-unity-font-definition: url(&apos;project://database/Assets/VFX/Fonts/NAMU-1400.ttf?fileID=12800000&amp;guid=32b30a043935413cf9b69054b7e11b8d&amp;type=3#NAMU-1400&apos;); font-size: 24px; height: auto;" />
+                                <ui:VisualElement name="VolumeControlSliderContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: stretch; justify-content: center; align-self: flex-end;">
+                                    <ui:Slider value="42" high-value="100" name="VolumeControlSlider" style="flex-shrink: 1; flex-grow: 1;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                         </ui:VisualElement>
@@ -67,21 +69,19 @@
                     </ui:VisualElement>
                     <ui:VisualElement name="ControlsSettingsGroup" style="flex-grow: 1; margin-left: 32px;">
                         <ui:VisualElement name="inlineSettingContainer" class="inlineSettingContainer" style="flex-grow: 1;">
-                            <ui:VisualElement name="inlineDropDownSettingTemplate" style="flex-grow: 1; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; display: flex;">
-                                <ui:VisualElement name="SettingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; justify-content: center; align-items: flex-start;">
-                                    <ui:Label text="Розширення екрану" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
+                            <ui:VisualElement name="inlineControlsSettingTemplate" style="flex-grow: 1; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; display: flex;">
+                                <ui:VisualElement name="SettingLabelContainer" class="settingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; display: flex; justify-content: center; align-items: flex-start;">
+                                    <ui:Label text="Вперед" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
                                 </ui:VisualElement>
-                                <ui:VisualElement name="DropdownContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: stretch; justify-content: center; align-self: flex-end;">
-                                    <ui:DropdownField index="-1" choices="System.Collections.Generic.List`1[System.String]" name="DropdownField" style="-unity-font-definition: url(&apos;project://database/Assets/VFX/Fonts/NAMU-1400.ttf?fileID=12800000&amp;guid=32b30a043935413cf9b69054b7e11b8d&amp;type=3#NAMU-1400&apos;); font-size: 24px; height: auto;" />
+                                <ui:VisualElement name="ControlsKeyContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: flex-end; justify-content: center; align-self: flex-end;">
+                                    <ui:Button text="W" display-tooltip-when-elided="true" name="ControlsKey" style="flex-shrink: 1; flex-grow: 1; width: 50px; height: 50px; font-size: 32px; align-self: center;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:VisualElement name="inlineSettingContainer" class="inlineSettingContainer" style="flex-grow: 1;" />
-                        <ui:VisualElement name="inlineSettingContainer" class="inlineSettingContainer" style="flex-grow: 1;" />
                     </ui:VisualElement>
                 </ui:ScrollView>
             </ui:VisualElement>
-            <ui:VisualElement name="SettingsControlButtonsContainer" style="flex-grow: 0; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; border-left-color: rgb(63, 65, 67); border-right-color: rgb(63, 65, 67); border-top-color: rgb(63, 65, 67); border-bottom-color: rgb(63, 65, 67); border-top-width: 2px; flex-shrink: 0; background-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="SettingsControlButtonsContainer" style="flex-grow: 0; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; border-left-color: rgb(63, 65, 67); border-right-color: rgb(63, 65, 67); border-top-color: rgb(63, 65, 67); border-bottom-color: rgb(63, 65, 67); border-top-width: 2px; flex-shrink: 0; background-color: rgba(0, 0, 0, 0); min-height: auto;">
                 <ui:VisualElement name="SubmitChangesButtonContainer" style="flex-grow: 0; min-width: auto; align-self: stretch; width: 100%; align-items: flex-start; justify-content: center;">
                     <ui:Button text="Зберегти" display-tooltip-when-elided="true" name="SubmitSettingsChangesButton" class="uiButton-left" />
                 </ui:VisualElement>
