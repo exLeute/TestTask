@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace UserInterface
@@ -8,6 +7,8 @@ namespace UserInterface
     {
         private readonly VisualElement _root;
         private readonly UiManager _uiManager;
+        
+        private VisualElement _brightnessOverlay;
         
         private Button _saveSettingsButton;
         private Button _returnMainMenuButton;
@@ -33,6 +34,9 @@ namespace UserInterface
 
         private void QueryForSettingsControls()
         {
+            _brightnessOverlay = 
+                _root.Q<VisualElement>(AccessibleUIElements.BeginningScreen.BrightnessOverlay);           
+            
             _saveSettingsButton = 
                 _root.Q<Button>(AccessibleUIElements.SettingsMenu.Buttons.SaveSettings);
             _returnMainMenuButton = 
@@ -51,6 +55,7 @@ namespace UserInterface
             _fullscreenToggle = 
                 _root.Q<Toggle>(AccessibleUIElements.SettingsMenu.Toggles.Fullscreen);
             
+            HandleUploadSettings();
             SettingsControlManagement();
         }
 
@@ -65,6 +70,14 @@ namespace UserInterface
             _musicSlider.RegisterValueChangedCallback(HandleMusicVolumeChange);
             _uiSlider.RegisterValueChangedCallback(HandleUiVolumeChange);
             _brightnessSlider.RegisterValueChangedCallback(HandleBrightnessChange);
+        }
+
+        private void HandleUploadSettings()
+        {
+            _uiManager.soundOrganizer.musicAudioSource.volume = _musicSlider.value;
+            _uiManager.soundOrganizer.uiAudioSource.volume = _uiSlider.value;
+            _brightnessOverlay.style.opacity = 1.0f - _brightnessSlider.value;
+            _brightnessOverlay.pickingMode = PickingMode.Ignore;
         }
         
         private void HandleSaveSettings()
@@ -94,7 +107,8 @@ namespace UserInterface
         
         private void HandleBrightnessChange(ChangeEvent<float> evt)
         {
-            //RenderSettings.ambientLight = new Color(evt.newValue, evt.newValue, evt.newValue, 1);
+            // only ui brightness, because no gameplay yet
+            _brightnessOverlay.style.opacity = 1.0f - evt.newValue; 
         }
     }
 }

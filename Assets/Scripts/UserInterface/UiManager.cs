@@ -12,11 +12,6 @@ namespace UserInterface
         public void Init(VisualElement root)
         {
             _root = root;
-            ConfigureSounds();
-        }
-
-        private void ConfigureSounds()
-        {
             BindSoundsToUi();
         }
 

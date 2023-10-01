@@ -45,5 +45,10 @@ namespace UserInterface
                 public const string UserInterface = "UiVolumeSlider";
             }
         }
+        
+        public struct BeginningScreen
+        {
+            public const string BrightnessOverlay = "BrightnessOverlay";
+        }
     }
 }
