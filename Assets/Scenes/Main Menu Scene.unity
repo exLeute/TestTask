@@ -156,7 +156,7 @@ Camera:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 3
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -237,7 +237,6 @@ GameObject:
   - component: {fileID: 650162207}
   - component: {fileID: 650162209}
   - component: {fileID: 650162210}
-  - component: {fileID: 650162211}
   m_Layer: 5
   m_Name: User Interface
   m_TagString: Untagged
@@ -289,19 +288,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiManager: {fileID: 1002760445}
---- !u!114 &650162211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650162206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1243ea2dc5cf7ef9eafb3e29342d3dee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  postprocessMaterial: {fileID: 0}
 --- !u!1 &984246332
 GameObject:
   m_ObjectHideFlags: 0

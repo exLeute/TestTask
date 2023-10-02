@@ -34,7 +34,7 @@
                                     <ui:Label text="Розширення екрану" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="ResolutionDropdownContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: stretch; justify-content: center; align-self: flex-end;">
-                                    <ui:DropdownField index="-1" choices="1920x1080, 1024x720, 1280x600, 900x600" focusable="false" style="-unity-font-definition: url(&apos;project://database/Assets/VFX/Fonts/NAMU-1400.ttf?fileID=12800000&amp;guid=32b30a043935413cf9b69054b7e11b8d&amp;type=3#NAMU-1400&apos;); font-size: 24px; flex-shrink: 1; flex-grow: 1; margin-top: 0; margin-bottom: 0; margin-left: 0; -unity-text-align: upper-right; justify-content: flex-end;" />
+                                    <ui:DropdownField index="-1" choices="1920x1080, 1024x720, 1280x600, 900x600" focusable="false" name="ResolutionDropdownField" style="-unity-font-definition: url(&apos;project://database/Assets/VFX/Fonts/NAMU-1400.ttf?fileID=12800000&amp;guid=32b30a043935413cf9b69054b7e11b8d&amp;type=3#NAMU-1400&apos;); font-size: 24px; flex-shrink: 1; flex-grow: 1; margin-top: 0; margin-bottom: 0; margin-left: 0; -unity-text-align: upper-right; justify-content: flex-end;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                         </ui:VisualElement>
