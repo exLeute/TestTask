@@ -101,7 +101,6 @@ namespace UserInterface
             _uiManager.soundOrganizer.musicAudioSource.volume = _musicSlider.value;
             _uiManager.soundOrganizer.uiAudioSource.volume = _uiSlider.value;
             _brightnessOverlay.style.opacity = 1.0f - _brightnessSlider.value;
-            _brightnessOverlay.pickingMode = PickingMode.Ignore;
             
             _resolutionDropdownField.choices.Clear();
             _resolutionDropdownField.choices.AddRange(ResolutionSetting.VerifiedResolutions

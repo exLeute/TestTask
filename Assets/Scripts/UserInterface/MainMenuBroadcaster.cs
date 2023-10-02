@@ -1,9 +1,14 @@
 using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.UIElements;
+
 namespace UserInterface
 {
     public class MainMenuBroadcaster
     {
+        private readonly VisualElement _root;
+        
         private Button _playButton;
         private Button _settingsButton;
         private Button _quitButton;
@@ -15,14 +20,30 @@ namespace UserInterface
         
         public MainMenuBroadcaster(VisualElement root)
         {
-            QueryForMainMenuControls(root);
+            _root = root;
+            QueryForMainMenuControls();
+            SettingsControlManagement();
         }
 
-        private void QueryForMainMenuControls(VisualElement root)
+        private void QueryForMainMenuControls()
         {
-            _playButton = root.Q<Button>(AccessibleUIElements.MainMenu.Buttons.Play);
-            _settingsButton = root.Q<Button>(AccessibleUIElements.MainMenu.Buttons.Settings);
-            _quitButton = root.Q<Button>(AccessibleUIElements.MainMenu.Buttons.Quit);
+            _playButton = _root.Q<Button>(AccessibleUIElements.MainMenu.Buttons.Play);
+            _settingsButton = _root.Q<Button>(AccessibleUIElements.MainMenu.Buttons.Settings);
+            _quitButton = _root.Q<Button>(AccessibleUIElements.MainMenu.Buttons.Quit);
+        }
+
+        private void SettingsControlManagement()
+        {
+            QuitGameActionSubscribe = HandleQuitEvent;
+        }
+        
+        private void HandleQuitEvent()
+        {
+            #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+            
+            #endif
+            Application.Quit();
         }
     }
 }
