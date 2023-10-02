@@ -32,10 +32,6 @@ namespace UserInterface
         {
             _mainMenuScreen = _root.Q(AccessibleUIElements.BeginningScreen.MainMenuScreen);
             _settingsScreen = _root.Q(AccessibleUIElements.BeginningScreen.SettingsMenuScreen);
-
-            _debugLabelResolution1 = _root.Q<Label>("Resolution");
-            _debugLabelResolution2 = _root.Q<Label>("Resolution2");
-            _debugLabelFullscreen = _root.Q<Label>("Fullscreen");
         }
 
         private void SetupScreens()
@@ -55,17 +51,6 @@ namespace UserInterface
         {
             swapFrom.Display(false);
             swapTo.Display(true);
-        }
-
-        private Label _debugLabelResolution1;
-        private Label _debugLabelResolution2;
-        private Label _debugLabelFullscreen;
-        
-        private void Update()
-        {
-            _debugLabelResolution1.text = $"{Screen.width}x{Screen.height}";
-            _debugLabelResolution2.text = $"{Screen.currentResolution.width}x{Screen.currentResolution.height}";
-            _debugLabelFullscreen.text = $"{Screen.fullScreen}";
         }
     }
 }

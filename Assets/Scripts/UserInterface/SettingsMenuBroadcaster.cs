@@ -118,20 +118,27 @@ namespace UserInterface
         
         private void HandleSaveSettingsEvent()
         {
-            if (SettingsChanged.IsFullScreenChanged)
+            if (SettingsChanged.IsFullScreenChanged && SettingsChanged.IsResolutionChanged)
             {
-                Screen.SetResolution(ResolutionSettings.RenderResolution.x, 
-                    ResolutionSettings.RenderResolution.y, _temporaryFullscreenEnabled);
-                
+                Screen.SetResolution(_temporaryResolution.width, 
+                    _temporaryResolution.height, _temporaryFullscreenEnabled);
+                        
+                SettingsChanged.IsResolutionChanged = false;
                 SettingsChanged.IsFullScreenChanged = false;
             }
-
-            if (SettingsChanged.IsResolutionChanged)
+            else if (SettingsChanged.IsResolutionChanged)
             {
                 Screen.SetResolution(_temporaryResolution.width, 
                     _temporaryResolution.height, Screen.fullScreen);
-                    
+                        
                 SettingsChanged.IsResolutionChanged = false;
+            }
+            else if (SettingsChanged.IsFullScreenChanged)
+            {
+                Screen.SetResolution(ResolutionSettings.RenderResolution.x, 
+                    ResolutionSettings.RenderResolution.y, _temporaryFullscreenEnabled);
+                    
+                SettingsChanged.IsFullScreenChanged = false;
             }
             
             ToggleAllowSaveSettingsButton(false);
@@ -140,6 +147,7 @@ namespace UserInterface
         private void HandleFullscreenToggleEvent(ChangeEvent<bool> evt)
         {
             SettingsChanged.IsFullScreenChanged = true;
+            _temporaryFullscreenEnabled = evt.newValue;
             ToggleAllowSaveSettingsButton();
         }
         
