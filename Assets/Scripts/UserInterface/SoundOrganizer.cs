@@ -22,6 +22,8 @@ namespace UserInterface
     
     public class SoundOrganizer : MonoBehaviour
     {
+        [SerializeField] private bool autoPlayMusic = true;
+        
         [Header("Audio sources")]
         public AudioSource musicAudioSource;
         public AudioSource uiAudioSource;
@@ -33,10 +35,10 @@ namespace UserInterface
         private void Start()
         {
             musicAudioSource.clip = music.mainMenu;
-            musicAudioSource.Play();
+            if(autoPlayMusic) musicAudioSource.Play();
         }
 
-        public static void PlaySound(AudioClip sound, AudioSource audioSource)
+        private static void PlaySound(AudioClip sound, AudioSource audioSource)
         {
             if (audioSource.clip != sound) audioSource.clip = sound;
             if(audioSource.isPlaying) audioSource.Stop();

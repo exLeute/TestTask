@@ -1,6 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="inlineDropDownSettingTemplate" src="project://database/Assets/VFX/User%20Interface/Markup%20Data/Components/inlineDropDownSettingTemplate.uxml?fileID=9197481963319205126&amp;guid=dc6dd7d2fac6f91cb86cfce22b75bd7e&amp;type=3#inlineDropDownSettingTemplate" />
-    <Style src="project://database/Assets/VFX/User%20Interface/Stylesheets/ComponentsStylesheet.uss?fileID=7433441132597879392&amp;guid=6fd5e0aa3de5d8dec8b7bf7064c98c9a&amp;type=3#ComponentsStylesheet" />
-    <Style src="project://database/Assets/VFX/User%20Interface/Stylesheets/LabelStylesheet.uss?fileID=7433441132597879392&amp;guid=f4611c982520b26319c596cfa4cc2211&amp;type=3#LabelStylesheet" />
-    <ui:Instance template="inlineDropDownSettingTemplate" name="inlineDropDownSettingTemplate" />
-</ui:UXML>

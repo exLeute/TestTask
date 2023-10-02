@@ -9,32 +9,42 @@ namespace UserInterface
 
         private VisualElement _root;
 
+        private UQueryBuilder<Toggle> _toggleElements;
+        private UQueryBuilder<Button> _buttonElements;
+        private UQueryBuilder<DropdownField> _dropDownElements;
+        private UQueryBuilder<VisualElement> _dropDownItemElements;
+        
         public void Init(VisualElement root)
         {
             _root = root;
+            
+            QueryForUiElements();
             BindSoundsToUi();
         }
 
+        private void QueryForUiElements()
+        {
+            _toggleElements = _root.Query<Toggle>();
+            _buttonElements = _root.Query<Button>();
+            _dropDownElements = _root.Query<DropdownField>();
+            _dropDownItemElements =
+                _root.parent.Query(className: AccessibleUIElements.BuiltIn.DropDownField.DropdownItem);
+        }
+        
         private void BindSoundsToUi()
         {
-            UQueryBuilder<Toggle> toggleElements = _root.Query<Toggle>();
-            UQueryBuilder<Button> buttonElements = _root.Query<Button>();
-            UQueryBuilder<DropdownField> dropDownElements = _root.Query<DropdownField>();
-            UQueryBuilder<VisualElement> dropDownItemElements =
-                _root.parent.Query(className: AccessibleUIElements.BuiltIn.DropDownField.DropdownItem);
-            
-            toggleElements.ForEach(toggle =>
+            _toggleElements.ForEach(toggle =>
                 soundOrganizer.AssignSoundToUI<MouseEnterEvent>(soundOrganizer.controls.hoverClick, toggle));
             
-            buttonElements.ForEach(button =>
+            _buttonElements.ForEach(button =>
                 soundOrganizer.AssignSoundToUI<MouseEnterEvent>(soundOrganizer.controls.hoverClick, button));
 
-            dropDownElements.ForEach(dropdown =>
+            _dropDownElements.ForEach(dropdown =>
             {
                 soundOrganizer.AssignSoundToUI<MouseEnterEvent>(soundOrganizer.controls.hoverClick, dropdown);
                 dropdown.RegisterCallback<MouseDownEvent>(_ =>
                 {
-                    dropDownItemElements.ForEach(dropdownItem =>
+                    _dropDownItemElements.ForEach(dropdownItem =>
                         soundOrganizer.AssignSoundToUI<MouseEnterEvent>(soundOrganizer.controls.hoverClick, dropdownItem));
                 });
             });

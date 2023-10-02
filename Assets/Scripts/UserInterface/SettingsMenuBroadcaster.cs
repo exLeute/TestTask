@@ -70,20 +70,7 @@ namespace UserInterface
             
             SettingsControlManagement();
         }
-
-        private void SettingsConfiguration()
-        {
-            ResolutionSettings.Resolutions = Screen.resolutions;
-
-            ResolutionSettings.VerifiedResolutions = ResolutionSettings.Resolutions.Where(x => 
-                Mathf.Approximately((float)x.width / x.height, 4.0f / 3.0f) ||
-                Mathf.Approximately((float)x.width / x.height, 16.0f / 9.0f) ||
-                Mathf.Approximately((float)x.width / x.height, 16.0f / 10.0f)).ToList();
-
-            ResolutionSettings.VerifiedResolutions =
-                ResolutionSettings.OrderByResolutionValue(ResolutionSettings.VerifiedResolutions);
-        }
-
+        
         private void SettingsControlManagement()
         {
             SaveSettingsActionSubscribe = HandleSaveSettingsEvent;
@@ -97,6 +84,19 @@ namespace UserInterface
             _uiSlider.RegisterValueChangedCallback(HandleUiVolumeChangeEvent);
             _brightnessSlider.RegisterValueChangedCallback(HandleBrightnessChangeEvent);
         }
+        
+        private void SettingsConfiguration()
+        {
+            ResolutionSettingsExtensions.Resolutions = Screen.resolutions;
+
+            ResolutionSettingsExtensions.VerifiedResolutions = ResolutionSettingsExtensions.Resolutions.Where(x => 
+                Mathf.Approximately((float)x.width / x.height, 4.0f / 3.0f) ||
+                Mathf.Approximately((float)x.width / x.height, 16.0f / 9.0f) ||
+                Mathf.Approximately((float)x.width / x.height, 16.0f / 10.0f)).ToList();
+
+            ResolutionSettingsExtensions.VerifiedResolutions =
+                ResolutionSettingsExtensions.OrderByResolutionValue(ResolutionSettingsExtensions.VerifiedResolutions);
+        }
 
         private void UploadSettings()
         {
@@ -106,13 +106,13 @@ namespace UserInterface
             _brightnessSlider.value = 0.5f - _brightnessOverlay.style.opacity.value;
 
             _fullscreenToggle.SetValueWithoutNotify(Screen.fullScreen);
-            _resolutionDropdownField.choices = ResolutionSettings.VerifiedResolutions
-                .Select(ResolutionSettings.ResolutionToStringFormat).ToList();
+            _resolutionDropdownField.choices = ResolutionSettingsExtensions.VerifiedResolutions
+                .Select(ResolutionSettingsExtensions.ResolutionToStringFormat).ToList();
             
-            if (ResolutionSettings.DoVerifiedResolutionsContains(ResolutionSettings.RenderResolution))
+            if (ResolutionSettingsExtensions.DoVerifiedResolutionsContains(ResolutionSettingsExtensions.RenderResolution))
             {
                 _resolutionDropdownField.SetValueWithoutNotify(
-                    ResolutionSettings.ResolutionToStringFormat(ResolutionSettings.RenderResolution));
+                    ResolutionSettingsExtensions.ResolutionToStringFormat(ResolutionSettingsExtensions.RenderResolution));
             }
         }
         
@@ -135,8 +135,8 @@ namespace UserInterface
             }
             else if (SettingsChanged.IsFullScreenChanged)
             {
-                Screen.SetResolution(ResolutionSettings.RenderResolution.x, 
-                    ResolutionSettings.RenderResolution.y, _temporaryFullscreenEnabled);
+                Screen.SetResolution(ResolutionSettingsExtensions.RenderResolution.x, 
+                    ResolutionSettingsExtensions.RenderResolution.y, _temporaryFullscreenEnabled);
                     
                 SettingsChanged.IsFullScreenChanged = false;
             }
@@ -154,7 +154,7 @@ namespace UserInterface
         private void HandleResolutionChangeEvent(ChangeEvent<string> evt)
         {
             SettingsChanged.IsResolutionChanged = true;
-            _temporaryResolution = ResolutionSettings.PullResolutionOutOfStringList(evt.newValue,
+            _temporaryResolution = ResolutionSettingsExtensions.PullResolutionOutOfStringList(evt.newValue,
                 _resolutionDropdownField.choices);
                 
             ToggleAllowSaveSettingsButton();
@@ -173,8 +173,8 @@ namespace UserInterface
 
             if (SettingsChanged.IsResolutionChanged)
             {
-                _resolutionDropdownField.SetValueWithoutNotify(ResolutionSettings.
-                ResolutionToStringFormat(ResolutionSettings.RenderResolution));
+                _resolutionDropdownField.SetValueWithoutNotify(ResolutionSettingsExtensions.
+                ResolutionToStringFormat(ResolutionSettingsExtensions.RenderResolution));
                 SettingsChanged.IsResolutionChanged = false;
             }
             

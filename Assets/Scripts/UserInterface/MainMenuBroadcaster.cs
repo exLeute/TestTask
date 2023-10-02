@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -37,7 +36,7 @@ namespace UserInterface
             QuitGameActionSubscribe = HandleQuitEvent;
         }
         
-        private void HandleQuitEvent()
+        private static void HandleQuitEvent()
         {
             #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;

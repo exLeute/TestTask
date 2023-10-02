@@ -1,4 +1,3 @@
-using System;
 using UI_Toolkit.Helpers;
 using UnityEngine;
 using UnityEngine.UIElements;
