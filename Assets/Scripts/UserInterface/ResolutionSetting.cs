@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -11,9 +10,8 @@ namespace UserInterface
         public Resolution MainResolution;
         public static Resolution[] Resolutions;
         public static List<Resolution> VerifiedResolutions;
-        public static List<Vector2Int> VerifiedResolutionsDimensions = new();
         public bool IsSaved;
-        public bool isFullscreen;
+        public bool IsFullscreen;
 
         public ResolutionSetting(bool saved) { IsSaved = saved; }
 
@@ -27,7 +25,7 @@ namespace UserInterface
         {
             resolutionSetting.MainResolution.width = resolution.width; 
             resolutionSetting.MainResolution.height = resolution.height;
-            resolutionSetting.isFullscreen = fullScreen;
+            resolutionSetting.IsFullscreen = fullScreen;
             Screen.SetResolution(resolution.width, resolution.height, fullScreen);
             dropdownField.SetValueWithoutNotify(ResolutionToStringFormat(resolution));
         }
@@ -37,7 +35,7 @@ namespace UserInterface
         {
             resolutionSetting.MainResolution.width = resolution.x;
             resolutionSetting.MainResolution.height = resolution.y;
-            resolutionSetting.isFullscreen = fullScreen;
+            resolutionSetting.IsFullscreen = fullScreen;
             Screen.SetResolution(resolution.x, resolution.y, fullScreen);
             dropdownField.SetValueWithoutNotify(ResolutionToStringFormat(resolution));
         }
@@ -62,7 +60,7 @@ namespace UserInterface
         public void UnSave()
         {
             IsSaved = false;
-            isFullscreen = false;
+            IsFullscreen = false;
             MainResolution = new Resolution {width = -1, height = -1};
         }
         
@@ -70,7 +68,7 @@ namespace UserInterface
         {
             IsSaved = true;
             MainResolution = resolution;
-            isFullscreen = fullScreen;
+            IsFullscreen = fullScreen;
         }        
         
         public void Save(int width, int height, bool fullScreen)
@@ -79,7 +77,7 @@ namespace UserInterface
             MainResolution = Screen.currentResolution;
             MainResolution.width = width;
             MainResolution.height = height;
-            isFullscreen = fullScreen;
+            IsFullscreen = fullScreen;
         }
     }
 }

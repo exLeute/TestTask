@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -74,10 +73,6 @@ namespace UserInterface
                 Mathf.Approximately((float)x.width / x.height, 4.0f / 3.0f) ||
                 Mathf.Approximately((float)x.width / x.height, 16.0f / 9.0f) ||
                 Mathf.Approximately((float)x.width / x.height, 16.0f / 10.0f)).ToList();
-            
-            ResolutionSetting.VerifiedResolutions.ForEach(resolution => 
-                ResolutionSetting.VerifiedResolutionsDimensions.Add(
-                    new Vector2Int(resolution.width, resolution.height)));
 
             ResolutionSetting.VerifiedResolutions =
                 ResolutionSetting.OrderByResolutionValue(ResolutionSetting.VerifiedResolutions);
@@ -102,7 +97,7 @@ namespace UserInterface
             _unsavedResolution = new ResolutionSetting(false);
             _savedResolution = new ResolutionSetting(true);
             
-            _saveSettingsButton.visible = false;
+            TriggerSettingsSaved();
             _uiManager.soundOrganizer.musicAudioSource.volume = _musicSlider.value;
             _uiManager.soundOrganizer.uiAudioSource.volume = _uiSlider.value;
             _brightnessOverlay.style.opacity = 1.0f - _brightnessSlider.value;
@@ -127,7 +122,7 @@ namespace UserInterface
             if (_unsavedResolution.IsSaved)
             {
                 ResolutionSetting.SetResolutionAndDropdownField(_savedResolution, _resolutionDropdownField,
-                    _unsavedResolution.MainResolution, _unsavedResolution.isFullscreen);
+                    _unsavedResolution.MainResolution, _unsavedResolution.IsFullscreen);
                 _unsavedResolution.UnSave();
                 _saveSettingsButton.visible = false;
             }
@@ -136,7 +131,7 @@ namespace UserInterface
         private void HandleFullscreenToggleEvent(ChangeEvent<bool> evt)
         {
             TriggerSettingsUnsaved();
-            _unsavedResolution.isFullscreen = evt.newValue;
+            _unsavedResolution.IsFullscreen = evt.newValue;
         }
         
         private void HandleResolutionChangeEvent(ChangeEvent<string> evt)
@@ -144,7 +139,7 @@ namespace UserInterface
             if (!_unsavedResolution.IsSaved)
             {
                 _unsavedResolution.Save(ResolutionSetting.PullResolutionOutOfStringList(evt.newValue,
-                    _resolutionDropdownField.choices), _unsavedResolution.isFullscreen);
+                    _resolutionDropdownField.choices), _unsavedResolution.IsFullscreen);
             }
             
             TriggerSettingsUnsaved();
@@ -154,13 +149,19 @@ namespace UserInterface
         {
             _saveSettingsButton.visible = true;
         }
+        
+        private void TriggerSettingsSaved()
+        {
+            _saveSettingsButton.visible = false;
+        }
 
         private void ResetUnsavedSettings()
         {
             _unsavedResolution.UnSave();
             _resolutionDropdownField.SetValueWithoutNotify(ResolutionSetting.
                 ResolutionToStringFormat(_savedResolution.MainResolution));
-            _fullscreenToggle.SetValueWithoutNotify(_savedResolution.isFullscreen);
+            _fullscreenToggle.SetValueWithoutNotify(_savedResolution.IsFullscreen);
+            TriggerSettingsSaved();
         }
         
         private void HandleMusicVolumeChangeEvent(ChangeEvent<float> evt)
