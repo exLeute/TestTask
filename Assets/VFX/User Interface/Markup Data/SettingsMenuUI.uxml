@@ -84,7 +84,79 @@
                                     <ui:Label text="Вперед" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
                                 </ui:VisualElement>
                                 <ui:VisualElement name="ControlsKeyContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: flex-end; justify-content: center; align-self: flex-end;">
-                                    <ui:Button text="W" display-tooltip-when-elided="true" name="ControlsKey" style="flex-shrink: 1; flex-grow: 1; width: 50px; height: 50px; font-size: 32px; align-self: center;" />
+                                    <ui:Button text="W" display-tooltip-when-elided="true" name="ControlsKey" class="uiKeyControlButton" style="flex-shrink: 1; flex-grow: 1; font-size: 32px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="ControlsSettingsGroup" style="flex-grow: 1; margin-left: 32px;">
+                        <ui:VisualElement name="inlineSettingContainer" class="inlineSettingContainer" style="flex-grow: 1;">
+                            <ui:VisualElement name="inlineControlsSettingTemplate" style="flex-grow: 1; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; display: flex;">
+                                <ui:VisualElement name="SettingLabelContainer" class="settingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; display: flex; justify-content: center; align-items: flex-start;">
+                                    <ui:Label text="Вліво" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="ControlsKeyContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: flex-end; justify-content: center; align-self: flex-end;">
+                                    <ui:Button text="A" display-tooltip-when-elided="true" name="ControlsKey" class="uiKeyControlButton" style="flex-shrink: 1; flex-grow: 1; font-size: 32px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="ControlsSettingsGroup" style="flex-grow: 1; margin-left: 32px;">
+                        <ui:VisualElement name="inlineSettingContainer" class="inlineSettingContainer" style="flex-grow: 1;">
+                            <ui:VisualElement name="inlineControlsSettingTemplate" style="flex-grow: 1; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; display: flex;">
+                                <ui:VisualElement name="SettingLabelContainer" class="settingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; display: flex; justify-content: center; align-items: flex-start;">
+                                    <ui:Label text="Назад" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="ControlsKeyContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: flex-end; justify-content: center; align-self: flex-end;">
+                                    <ui:Button text="S" display-tooltip-when-elided="true" name="ControlsKey" class="uiKeyControlButton" style="flex-shrink: 1; flex-grow: 1; font-size: 32px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="ControlsSettingsGroup" style="flex-grow: 1; margin-left: 32px;">
+                        <ui:VisualElement name="inlineSettingContainer" class="inlineSettingContainer" style="flex-grow: 1;">
+                            <ui:VisualElement name="inlineControlsSettingTemplate" style="flex-grow: 1; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; display: flex;">
+                                <ui:VisualElement name="SettingLabelContainer" class="settingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; display: flex; justify-content: center; align-items: flex-start;">
+                                    <ui:Label text="Вправо" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="ControlsKeyContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: flex-end; justify-content: center; align-self: flex-end;">
+                                    <ui:Button text="D" display-tooltip-when-elided="true" name="ControlsKey" class="uiKeyControlButton" style="flex-shrink: 1; flex-grow: 1; font-size: 32px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="ControlsSettingsGroup" style="flex-grow: 1; margin-left: 32px;">
+                        <ui:VisualElement name="inlineSettingContainer" class="inlineSettingContainer" style="flex-grow: 1;">
+                            <ui:VisualElement name="inlineControlsSettingTemplate" style="flex-grow: 1; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; display: flex;">
+                                <ui:VisualElement name="SettingLabelContainer" class="settingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; display: flex; justify-content: center; align-items: flex-start;">
+                                    <ui:Label text="Взаємодія" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="ControlsKeyContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: flex-end; justify-content: center; align-self: flex-end;">
+                                    <ui:Button text="E" display-tooltip-when-elided="true" name="ControlsKey" class="uiKeyControlButton" style="flex-shrink: 1; flex-grow: 1; font-size: 32px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="ControlsSettingsGroup" style="flex-grow: 1; margin-left: 32px;">
+                        <ui:VisualElement name="inlineSettingContainer" class="inlineSettingContainer" style="flex-grow: 1;">
+                            <ui:VisualElement name="inlineControlsSettingTemplate" style="flex-grow: 1; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; display: flex;">
+                                <ui:VisualElement name="SettingLabelContainer" class="settingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; display: flex; justify-content: center; align-items: flex-start;">
+                                    <ui:Label text="Пауза" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="ControlsKeyContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: flex-end; justify-content: center; align-self: flex-end;">
+                                    <ui:Button text="ESC" display-tooltip-when-elided="true" name="ControlsKey" class="uiKeyControlButton" style="flex-shrink: 1; flex-grow: 1; font-size: 32px;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="ControlsSettingsGroup" style="flex-grow: 1; margin-left: 32px;">
+                        <ui:VisualElement name="inlineSettingContainer" class="inlineSettingContainer" style="flex-grow: 1;">
+                            <ui:VisualElement name="inlineControlsSettingTemplate" style="flex-grow: 1; align-self: stretch; justify-content: center; align-items: center; flex-direction: row; display: flex;">
+                                <ui:VisualElement name="SettingLabelContainer" class="settingLabelContainer" style="flex-grow: 1; align-self: flex-start; width: 60%; height: 100%; display: flex; justify-content: center; align-items: flex-start;">
+                                    <ui:Label text="Знімок єкрану" name="Label" class="settingLabel" style="flex-grow: 1; text-overflow: ellipsis; -unity-text-align: middle-left; align-self: stretch; flex-wrap: wrap; white-space: nowrap;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="ControlsKeyContainer" style="flex-grow: 1; width: 40%; height: 100%; background-color: rgba(0, 0, 0, 0); display: flex; align-items: flex-end; justify-content: center; align-self: flex-end;">
+                                    <ui:Button text="BACKSPACE" display-tooltip-when-elided="true" name="ControlsKey" class="uiKeyControlButton" style="flex-shrink: 1; flex-grow: 1; font-size: 32px;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                         </ui:VisualElement>

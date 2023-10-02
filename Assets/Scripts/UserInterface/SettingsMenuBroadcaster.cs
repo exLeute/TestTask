@@ -5,6 +5,12 @@ using UnityEngine.UIElements;
 
 namespace UserInterface
 {
+    public struct SettingsChanged
+    {
+        public static bool IsResolutionChanged;
+        public static bool IsFullScreenChanged;
+    }
+    
     public class SettingsMenuBroadcaster
     {
         private readonly VisualElement _root;
@@ -23,8 +29,8 @@ namespace UserInterface
         private Slider _musicSlider;
         private Slider _uiSlider;
         
-        private ResolutionSetting _savedResolution;
-        private ResolutionSetting _unsavedResolution;
+        private Resolution _temporaryResolution;
+        private bool _temporaryFullscreenEnabled;
         
         public Action MainMenuReturnActionSubscribe { set => _returnMainMenuButton.clicked += value; }
         public Action SaveSettingsActionSubscribe { set => _saveSettingsButton.clicked += value; }
@@ -36,7 +42,7 @@ namespace UserInterface
             
             QueryForSettingsControls();
             SettingsConfiguration();
-            HandleUploadSettings();
+            UploadSettings();
         }
 
         private void QueryForSettingsControls()
@@ -67,15 +73,15 @@ namespace UserInterface
 
         private void SettingsConfiguration()
         {
-            ResolutionSetting.Resolutions = Screen.resolutions;
+            ResolutionSettings.Resolutions = Screen.resolutions;
 
-            ResolutionSetting.VerifiedResolutions = ResolutionSetting.Resolutions.Where(x => 
+            ResolutionSettings.VerifiedResolutions = ResolutionSettings.Resolutions.Where(x => 
                 Mathf.Approximately((float)x.width / x.height, 4.0f / 3.0f) ||
                 Mathf.Approximately((float)x.width / x.height, 16.0f / 9.0f) ||
                 Mathf.Approximately((float)x.width / x.height, 16.0f / 10.0f)).ToList();
 
-            ResolutionSetting.VerifiedResolutions =
-                ResolutionSetting.OrderByResolutionValue(ResolutionSetting.VerifiedResolutions);
+            ResolutionSettings.VerifiedResolutions =
+                ResolutionSettings.OrderByResolutionValue(ResolutionSettings.VerifiedResolutions);
         }
 
         private void SettingsControlManagement()
@@ -92,75 +98,79 @@ namespace UserInterface
             _brightnessSlider.RegisterValueChangedCallback(HandleBrightnessChangeEvent);
         }
 
-        private void HandleUploadSettings()
+        private void UploadSettings()
         {
-            _unsavedResolution = new ResolutionSetting(false);
-            _savedResolution = new ResolutionSetting(true);
+            ToggleAllowSaveSettingsButton(false);
+            _musicSlider.value = _uiManager.soundOrganizer.musicAudioSource.volume; 
+            _uiSlider.value = _uiManager.soundOrganizer.uiAudioSource.volume;
+            _brightnessSlider.value = 0.5f - _brightnessOverlay.style.opacity.value;
+
+            _fullscreenToggle.SetValueWithoutNotify(Screen.fullScreen);
+            _resolutionDropdownField.choices = ResolutionSettings.VerifiedResolutions
+                .Select(ResolutionSettings.ResolutionToStringFormat).ToList();
             
-            TriggerSettingsSaved();
-            _uiManager.soundOrganizer.musicAudioSource.volume = _musicSlider.value;
-            _uiManager.soundOrganizer.uiAudioSource.volume = _uiSlider.value;
-            _brightnessOverlay.style.opacity = 1.0f - _brightnessSlider.value;
-            
-            _resolutionDropdownField.choices.Clear();
-            _resolutionDropdownField.choices.AddRange(ResolutionSetting.VerifiedResolutions
-                .Select(ResolutionSetting.ResolutionToStringFormat).ToList());
-            
-            Vector2Int currentScreenRes = new (Display.main.systemWidth, Display.main.systemHeight);
-            
-            if (ResolutionSetting.VerifiedResolutionsContains(currentScreenRes))
+            if (ResolutionSettings.DoVerifiedResolutionsContains(ResolutionSettings.RenderResolution))
             {
-                _resolutionDropdownField.SetValueWithoutNotify(ResolutionSetting.ResolutionToStringFormat(currentScreenRes));
-                _fullscreenToggle.SetValueWithoutNotify(Screen.fullScreen);
-                _savedResolution.Save(currentScreenRes.x, currentScreenRes.y, Screen.fullScreen);
+                _resolutionDropdownField.SetValueWithoutNotify(
+                    ResolutionSettings.ResolutionToStringFormat(ResolutionSettings.RenderResolution));
             }
         }
         
         private void HandleSaveSettingsEvent()
         {
-            if (_unsavedResolution.IsSaved)
+            if (SettingsChanged.IsFullScreenChanged)
             {
-                ResolutionSetting.SetResolutionAndDropdownField(_savedResolution, _resolutionDropdownField,
-                    _unsavedResolution.MainResolution, _unsavedResolution.IsFullscreen);
-                _unsavedResolution.UnSave();
-                _saveSettingsButton.visible = false;
+                Screen.SetResolution(ResolutionSettings.RenderResolution.x, 
+                    ResolutionSettings.RenderResolution.y, _temporaryFullscreenEnabled);
+                
+                SettingsChanged.IsFullScreenChanged = false;
             }
+
+            if (SettingsChanged.IsResolutionChanged)
+            {
+                Screen.SetResolution(_temporaryResolution.width, 
+                    _temporaryResolution.height, Screen.fullScreen);
+                    
+                SettingsChanged.IsResolutionChanged = false;
+            }
+            
+            ToggleAllowSaveSettingsButton(false);
         }
 
         private void HandleFullscreenToggleEvent(ChangeEvent<bool> evt)
         {
-            TriggerSettingsUnsaved();
-            _unsavedResolution.IsFullscreen = evt.newValue;
+            SettingsChanged.IsFullScreenChanged = true;
+            ToggleAllowSaveSettingsButton();
         }
         
         private void HandleResolutionChangeEvent(ChangeEvent<string> evt)
         {
-            if (!_unsavedResolution.IsSaved)
-            {
-                _unsavedResolution.Save(ResolutionSetting.PullResolutionOutOfStringList(evt.newValue,
-                    _resolutionDropdownField.choices), _unsavedResolution.IsFullscreen);
-            }
-            
-            TriggerSettingsUnsaved();
+            SettingsChanged.IsResolutionChanged = true;
+            _temporaryResolution = ResolutionSettings.PullResolutionOutOfStringList(evt.newValue,
+                _resolutionDropdownField.choices);
+                
+            ToggleAllowSaveSettingsButton();
         }
 
-        private void TriggerSettingsUnsaved()
-        {
-            _saveSettingsButton.visible = true;
-        }
-        
-        private void TriggerSettingsSaved()
-        {
-            _saveSettingsButton.visible = false;
-        }
+        private void ToggleAllowSaveSettingsButton(bool toggle = true) =>
+            _saveSettingsButton.visible = toggle;
 
         private void ResetUnsavedSettings()
         {
-            _unsavedResolution.UnSave();
-            _resolutionDropdownField.SetValueWithoutNotify(ResolutionSetting.
-                ResolutionToStringFormat(_savedResolution.MainResolution));
-            _fullscreenToggle.SetValueWithoutNotify(_savedResolution.IsFullscreen);
-            TriggerSettingsSaved();
+            if (SettingsChanged.IsFullScreenChanged)
+            {
+                _fullscreenToggle.SetValueWithoutNotify(Screen.fullScreen);
+                SettingsChanged.IsFullScreenChanged = false;
+            }
+
+            if (SettingsChanged.IsResolutionChanged)
+            {
+                _resolutionDropdownField.SetValueWithoutNotify(ResolutionSettings.
+                ResolutionToStringFormat(ResolutionSettings.RenderResolution));
+                SettingsChanged.IsResolutionChanged = false;
+            }
+            
+            ToggleAllowSaveSettingsButton(false);
         }
         
         private void HandleMusicVolumeChangeEvent(ChangeEvent<float> evt)

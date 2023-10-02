@@ -196,3 +196,19 @@
     flex-grow: 0;
     width: auto;
 }
+
+.uiKeyControlButton {
+    -unity-font-definition: url('project://database/Assets/VFX/Fonts/NAMU-1400.ttf?fileID=12800000&guid=32b30a043935413cf9b69054b7e11b8d&type=3#NAMU-1400');
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border-width: 0 0 2px 0;
+    border-color: rgb(75, 75, 75);
+    flex-grow: 1;
+    height: 50px;
+    align-self: center;
+    margin-right: 0;
+}
+
+.uiKeyControlButton:hover {
+    border-color: rgb(155, 155, 155);
+}

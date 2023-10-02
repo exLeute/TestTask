@@ -49,6 +49,8 @@ namespace UserInterface
         public struct BeginningScreen
         {
             public const string BrightnessOverlay = "BrightnessOverlay";
+            public const string MainMenuScreen = "MainMenuUI";
+            public const string SettingsMenuScreen = "SettingsMenuUI";
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UI_Toolkit.Helpers;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -20,9 +21,25 @@ namespace UserInterface
         public void Start()
         {
             _root = GetComponent<UIDocument>().rootVisualElement;
-            _mainMenuScreen = _root.Q("MainMenuUI");
-            _settingsScreen = _root.Q("SettingsMenuUI");
             
+            QueryForScreens();
+            SetupScreens();
+            
+            uiManager.Init(_root);
+        }
+
+        private void QueryForScreens()
+        {
+            _mainMenuScreen = _root.Q(AccessibleUIElements.BeginningScreen.MainMenuScreen);
+            _settingsScreen = _root.Q(AccessibleUIElements.BeginningScreen.SettingsMenuScreen);
+
+            _debugLabelResolution1 = _root.Q<Label>("Resolution");
+            _debugLabelResolution2 = _root.Q<Label>("Resolution2");
+            _debugLabelFullscreen = _root.Q<Label>("Fullscreen");
+        }
+
+        private void SetupScreens()
+        {
             _mainMenuBroadcaster = new MainMenuBroadcaster(_root)
             {
                 OpenSettingsActionSubscribe = () => SwapScreenWith(_mainMenuScreen, _settingsScreen)
@@ -32,14 +49,23 @@ namespace UserInterface
             {
                 MainMenuReturnActionSubscribe = () => SwapScreenWith(_settingsScreen, _mainMenuScreen)
             };
-            
-            uiManager.Init(_root);
         }
 
         private static void SwapScreenWith(VisualElement swapFrom, VisualElement swapTo)
         {
             swapFrom.Display(false);
             swapTo.Display(true);
+        }
+
+        private Label _debugLabelResolution1;
+        private Label _debugLabelResolution2;
+        private Label _debugLabelFullscreen;
+        
+        private void Update()
+        {
+            _debugLabelResolution1.text = $"{Screen.width}x{Screen.height}";
+            _debugLabelResolution2.text = $"{Screen.currentResolution.width}x{Screen.currentResolution.height}";
+            _debugLabelFullscreen.text = $"{Screen.fullScreen}";
         }
     }
 }
